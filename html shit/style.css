@@ -1,0 +1,16 @@
+body {
+    /* the image itself */
+    background-image: url("owp.jpg"); 
+
+    /* ..pretty obvious */
+    background-repeat: no-repeat; 
+
+    /* wallpapersizething */
+    background-size: cover; 
+
+    /* pos xy */
+    background-position: center; 
+
+    /* Kif the image is fixed */
+    background-attachment: fixed; 
+}
