@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset, Once Again</title>
+    <link rel="icon" type="image/x-icon" href="orca1.ico">
+    <!-- Make sure this file name exactly matches your actual CSS file name! -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1> Thank you for coming over. </h1>
+    <h2> OMORI OST (122) - Whitespace </h2>
+    
+    <p> here i come sandfrasiscoooo </p>
+    <a href="https://www.youtube.com/watch?v=8ldcETEXDgI" target="_blank">
+        <img src="orcaaa.gif" alt="spinnyca" width="128" height="128">
+    </a>
+
+    <br><br>
+    <img src="orcaa.gif" alt="okay mides" width="64" height="64">
+    
+    <h4> non-clickable gif. enjoy. </h4>
+    
+    <h5> Small oc sneekpeek until i can code list's in. 
+        <a href="https://en.wikipedia.org/wiki/Orca" target="_blank">
+            <img src="Killerwhales_jumping.png" width="32" height="32" alt="Orca">
+        </a>
+    </h5>     
+
+    <!-- --- NEW LIST SECTION --- -->
+    <h3>~OC LIST~</h3>
+    <ul>
+        <li>Midesei Aeliv </li>
+        <li>Marshy </li>
+        <li> Maeth </li>
+        <li> Ayedemir </li>
+    </ul>
+
+
+     <!-- --- BACKGROUND MUSIC PLAYER WITH CONTROLS --- -->
+    <audio id="bg-music" autoplay loop>
+        <source src="133WhiteSpace.wav" type="audio/wav">
+    </audio>
+
+    <!-- Floating Mute Button Widget (Top Right Corner) -->
+    <button id="mute-btn">🎵 Music: Off</button>
+
+    <script>
+      const audio = document.getElementById('bg-music');
+      const muteBtn = document.getElementById('mute-btn');
+
+      // Bypasses browser autoplay rules on the first click anywhere on the website
+      document.addEventListener('click', function() {
+        if (audio.paused && muteBtn.textContent === "🎵 Music: Off") {
+          audio.play();
+          muteBtn.textContent = "ON";
+        }
+      }, { once: true });
+
+      // Handles manual clicking of the mute toggle button
+      muteBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevents conflict with the page-click listener
+        
+        if (audio.paused) {
+          audio.play();
+          muteBtn.textContent = "ON";
+        } else {
+          audio.pause();
+          muteBtn.textContent = "OFF";
+        }
+      });
+    </script>
+
+</body>        
+</html>
