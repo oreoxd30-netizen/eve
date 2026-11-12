@@ -5,72 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunset, Once Again</title>
     <link rel="icon" type="image/x-icon" href="orca1.ico">
-    <!-- Make sure this file name exactly matches your actual CSS file name! -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> Thank you for coming over. </h1>
-    <h2> OMORI OST (122) - Whitespace </h2>
-    
-    <p> here i come sandfrasiscoooo </p>
-    <a href="https://www.youtube.com/watch?v=8ldcETEXDgI" target="_blank">
-        <img src="orcaaa.gif" alt="spinnyca" width="128" height="128">
-    </a>
-
-    <br><br>
-    <img src="orcaa.gif" alt="okay mides" width="64" height="64">
-    
-    <h4> non-clickable gif. enjoy. </h4>
-    
-    <h5> Small oc sneekpeek until i can code list's in. 
-        <a href="https://en.wikipedia.org/wiki/Orca" target="_blank">
-            <img src="Killerwhales_jumping.png" width="32" height="32" alt="Orca">
+    <main>
+        <h1>Thank you for coming over.</h1>
+        <h2>Enjoy some piano-jazz in the meanwhile</h2>
+        
+        <p>"FOWARD AERIAL!"</p>
+        <a href="https://youtube.com" target="_blank">
+            <img src="orcaaa.gif" alt="spinnyca" width="128" height="128">
         </a>
-    </h5>     
 
-    <!-- --- NEW LIST SECTION --- -->
-    <h3>~OC LIST~</h3>
-    <ul>
-        <li><a href="ocfile1.html">Midesei Aeliv </a></li>
-        <li>Marshy </li>
-        <li> Maeth </li>
-        <li> Ayedemir </li>
-    </ul>
+        <br><br>
+        <img src="orcaa.gif" alt="okay mides" width="64" height="64">
+        
+        <h4>non-clickable gif. enjoy.</h4>
+        
+        <h5>Up next: Mallow 
+            <a href="https://wikipedia.org" target="_blank">
+                <img src="Sheeps.jpg" width="32" height="32" alt="Sheeps..">
+            </a>
+        </h5>     
 
+        <!-- --- NEW LIST SECTION --- -->
+        <h3>~OC LIST~</h3>
+        <ul>
+            <li><a href="ocfile1.html">Midesei Aeliv</a></li>
+            <li>Marshy</li>
+            <li>Maeth</li>
+            <li>Ayedemir</li>
+        </ul>
+    </main>
 
-     <!-- --- BACKGROUND MUSIC PLAYER WITH CONTROLS --- -->
-    <audio id="bg-music" autoplay loop>
-        <source src="133WhiteSpace.wav" type="audio/wav">
+    <!-- --- BACKGROUND MUSIC PLAYER WITH CONTROLS --- -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="piano 56mb.wav" type="audio/wav">
     </audio>
 
     <!-- Floating Mute Button Widget (Top Right Corner) -->
-    <button id="mute-btn">🎵 Music: Off</button>
+    <button id="mute-btn">Music</button>
 
     <script>
       const audio = document.getElementById('bg-music');
       const muteBtn = document.getElementById('mute-btn');
+      let audioCtx;
+
+      function setupAudioBoost() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          const source = audioCtx.createMediaElementSource(audio);
+          const gainNode = audioCtx.createGain();
+          
+          gainNode.gain.value = 1.5; // 1.5 = 150% volume
+          source.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
 
       // Bypasses browser autoplay rules on the first click anywhere on the website
       document.addEventListener('click', function() {
         if (audio.paused && muteBtn.textContent === "🎵 Music: Off") {
+          setupAudioBoost();
           audio.play();
-          muteBtn.textContent = "ON";
+          muteBtn.textContent = "🎵 Music: On";
         }
       }, { once: true });
 
       // Handles manual clicking of the mute toggle button
       muteBtn.addEventListener('click', function(e) {
         e.stopPropagation(); // Prevents conflict with the page-click listener
+        setupAudioBoost();
         
         if (audio.paused) {
           audio.play();
-          muteBtn.textContent = "ON";
+          muteBtn.textContent = "On";
         } else {
           audio.pause();
-          muteBtn.textContent = "OFF";
+          muteBtn.textContent = "Off";
         }
       });
     </script>
-
 </body>        
 </html>
