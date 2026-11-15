@@ -4,190 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Profile: Mide</title>
-    <link rel="icon" type="image/x-icon" href="fallingleaf.ico">
-    <!-- Google Fonts -->
+    <link rel="icon" href="fallingleaf.ico">
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
-    <style>
-        /* 
-           AUTUMN & WORK-IN-PROGRESS PALETTE:
-           - Vibrant Maple Red:       #C82319
-           - Deep Autumn Orange:     #E15A19
-           - Bright Warning Yellow:   #FFD014
-           - Clear Sky/Lake Blue:     #2D82B7
-           - Soft Cream / White:      #FFFDF6
-        */
-
-        body {
-            font-family: 'Finger Paint', cursive;
-            font-weight: 500; 
-            color: #FFFDF6; 
-            margin: 0;
-            padding: 4rem 2rem;
-            line-height: 1.6;
-            min-height: 100vh;
-            box-sizing: border-box;
-            
-            /* Background image using the provided landscape view */
-            background-image: url("Leaf.jpg"); 
-            background-repeat: no-repeat; 
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed; 
-            background-color: #2D82B7; 
-            
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Heading Styles */
-        h1 {
-            font-size: 3rem;
-            font-style: normal;
-            color: #FFD014; 
-            -webkit-text-stroke: 1.5px #C82319; 
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            margin-top: 0;
-        }
-
-        h2 {
-            font-size: 1.6rem;
-            font-weight: 400; 
-            color: #FFFDF6; 
-            -webkit-text-stroke: 1px #E15A19;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-            text-align: center;
-            max-width: 800px;
-            margin: 1rem auto;
-        }
-
-        h2:first-of-type {
-            color: rgba(255, 253, 246, 0.4); 
-            -webkit-text-stroke: 1px rgba(225, 90, 25, 0.4);
-        }
-
-        /* Profile Layout Container with plenty of surrounding breathing room */
-        .profile-container {
-            max-width: 700px;
-            background: rgba(0, 0, 0, 0.55);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 4px dashed #FFD014; /* Inspired by the sign's graphic border style */
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            margin: 6rem auto 2rem auto; /* Large top margin to create empty space around the content */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        h4 {
-            font-size: 1.4rem;
-            color: #FFD014;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            -webkit-text-stroke: 0.5px #C82319;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 0.75rem;
-            font-size: 1.15rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        }
-
-        strong {
-            color: #E15A19;
-            -webkit-text-stroke: 0.5px #FFD014;
-        }
-
-        /* Floating Semi-Transparent Leaf Music Button */
-        .music-btn {
-            position: fixed;
-            top: 25px;
-            right: 25px;
-            width: 55px;
-            height: 55px;
-            background-color: rgba(255, 208, 20, 0.6); /* Semi-transparent yellow */
-            color: #000;
-            border: 2px solid rgba(200, 35, 25, 0.7);
-            border-radius: 0 25px; /* Leaf shape look */
-            font-size: 1.4rem;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: rotate(-15deg);
-            transition: transform 0.2s, background-color 0.2s, opacity 0.2s;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.1) rotate(5deg);
-            background-color: rgba(225, 90, 25, 0.85); /* Changes to warm orange on hover */
-            color: #FFFDF6;
-        }
-
-        /* Falling Autumn Leaves Effect */
-        .leaves-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .leaf {
-            position: absolute;
-            top: -20px;
-            width: 15px;
-            height: 15px;
-            background: #C82319;
-            border-radius: 0 15px;
-            opacity: 0.8;
-            animation: fall linear infinite;
-        }
-
-        /* Customizing color and size variants for different leaves */
-        .leaf:nth-child(2n) { background: #E15A19; width: 20px; height: 20px; }
-        .leaf:nth-child(3n) { background: #FFD014; width: 12px; height: 12px; }
-
-        /* Animation delays and positions */
-        .leaf:nth-child(1) { left: 10%; animation-duration: 7s; animation-delay: 0s; }
-        .leaf:nth-child(2) { left: 25%; animation-duration: 9s; animation-delay: 2s; }
-        .leaf:nth-child(3) { left: 45%; animation-duration: 6s; animation-delay: 1s; }
-        .leaf:nth-child(4) { left: 65%; animation-duration: 8s; animation-delay: 4s; }
-        .leaf:nth-child(5) { left: 80%; animation-duration: 7s; animation-delay: 1.5s; }
-        .leaf:nth-child(6) { left: 90%; animation-duration: 10s; animation-delay: 3s; }
-
-        @keyframes fall {
-            0% {
-                top: -50px;
-                transform: translateX(0) rotate(0deg);
-            }
-            50% {
-                transform: translateX(50px) rotate(180deg);
-            }
-            100% {
-                top: 105vh;
-                transform: translateX(-30px) rotate(360deg);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
 
-    <!-- Falling Leaves Animation Background -->
-    <div class="leaves-container">
+    <!-- Top-Right Leaf Music Button -->
+    <button id="musicBtn" class="music-btn" type="button" onclick="toggleMusic(this)" aria-label="Toggle Background Music"></button>
+
+    <!-- Hidden Audio Track -->
+    <audio id="bg-music" loop preload="auto" src="003.wav"></audio>
+
+    <!-- Falling Maple Leaves Background -->
+    <div class="leaves-container" aria-hidden="true">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
         <div class="leaf"></div>
         <div class="leaf"></div>
         <div class="leaf"></div>
@@ -196,18 +34,12 @@
         <div class="leaf"></div>
     </div>
 
-    <!-- Music Control Button shaped like a leaf -->
-    <button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Toggle Music">
-        
-    </button>
-    <!-- Invisible Audio Element -->
-    <audio id="bg-music" loop src="your-audio-file.mp3"></audio>
-
+    <!-- Header Section -->
     <h1>OC SUBSITE</h1>
     <h2>The Orca.</h2>
-    <h2>Midesei Aeliv is one of the first hybrids in the E.U.E World i've set to work with.</h2>
+    <h2>Midesei Aeliv is one of the first hybrids in the E.U.E World I've set to work with.</h2>
 
-    <!-- Profile Area with margin offsets for full backdrop clearance -->
+    <!-- Main Profile Container -->
     <div class="profile-container">
         <h4>Body Structure</h4>
         <ul>
@@ -218,7 +50,7 @@
             <li><strong>Age:</strong> 27 Years Old</li>
         </ul>
 
-        <h4>Professional & Research Details</h4>
+        <h4>Professional &amp; Research Details</h4>
         <ul>
             <li><strong>Occupation:</strong> Main Secretary of EUE HQ, Dispatch Subsection</li>
             <li><strong>Current Aimed Research:</strong> Cells and Regeneration, ADN Body</li>
@@ -226,16 +58,22 @@
         </ul>
     </div>
 
+    <!-- Music Toggle Script -->
     <script>
-        function toggleMusic() {
-            var audio = document.getElementById('bg-music');
-            var btn = document.getElementById('musicBtn');
+        function toggleMusic(btn) {
+            const audio = document.getElementById('bg-music');
+
             if (audio.paused) {
-                audio.play();
-                btn.innerHTML = "⏸️";
+                audio.play()
+                    .then(() => {
+                        btn.classList.add('playing');
+                    })
+                    .catch((error) => {
+                        alert("Audio error: " + error.message);
+                    });
             } else {
                 audio.pause();
-                btn.innerHTML = "🎵";
+                btn.classList.remove('playing');
             }
         }
     </script>

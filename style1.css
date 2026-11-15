@@ -1,31 +1,32 @@
 /* 
-   AUTUMN & WORK-IN-PROGRESS PALETTE:
-   - Vibrant Maple Red:       #C82319
-   - Deep Autumn Orange:     #E15A19
-   - Bright Warning Yellow:   #FFD014
-   - Clear Sky/Lake Blue:     #2D82B7
-   - Soft Cream / White:      #FFFDF6
+   MOUNT FUJI AUTUMN PALETTE (Matched to Reference Photo):
+   - Fiery Maple Red:         #D92B04
+   - Vibrant Autumn Orange:   #F26419
+   - Golden Foliage Yellow:   #F6AE2D
+   - Crisp Fuji Sky Blue:     #1E73BE
+   - Deep Lake Navy:          #0B253A
+   - Snow Peak White:         #F8FAFC
 */
 
 @import url('https://googleapis.com');
 
 body {
     font-family: 'Finger Paint', cursive;
-    font-weight: 500; 
-    color: #FFFDF6; 
+    font-weight: 400;
+    color: #F8FAFC;
     margin: 0;
     padding: 4rem 2rem;
     line-height: 1.6;
     min-height: 100vh;
     box-sizing: border-box;
     
-    /* Background setup with the autumn scenery image */
-    background-image: url("Leaf.jpg"); 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed; 
-    background-color: #2D82B7; 
+    /* Background image matched to your Mount Fuji autumn photo */
+    background-image: linear-gradient(rgba(11, 37, 58, 0.25), rgba(11, 37, 58, 0.45)), url("Leaf.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #1E73BE;
     
     position: relative;
     overflow-x: hidden;
@@ -33,52 +34,64 @@ body {
 
 /* Heading Styles */
 h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-style: normal;
-    color: #FFD014; 
-    -webkit-text-stroke: 1.5px #C82319; 
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    color: #F6AE2D;
+    -webkit-text-stroke: 1.5px #D92B04;
+    text-shadow: 0 4px 12px rgba(11, 37, 58, 0.85);
     text-align: center;
     margin-top: 0;
+    position: relative;
+    z-index: 20;
 }
 
 h2 {
-    font-size: 1.6rem;
-    font-weight: 400; 
-    color: #FFFDF6; 
-    -webkit-text-stroke: 1px #E15A19;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 1.55rem;
+    font-weight: 400;
+    color: #F8FAFC;
+    -webkit-text-stroke: 0.8px #0B253A;
+    text-shadow: 2px 2px 6px rgba(11, 37, 58, 0.9);
     text-align: center;
     max-width: 800px;
-    margin: 1rem auto;
+    margin: 0.85rem auto;
+    position: relative;
+    z-index: 20;
 }
 
 h2:first-of-type {
-    color: rgba(255, 253, 246, 0.4); 
-    -webkit-text-stroke: 1px rgba(225, 90, 25, 0.4);
+    color: rgba(248, 250, 252, 0.75);
+    -webkit-text-stroke: 1px #1E73BE;
 }
 
-/* Profile Layout Container with extra breathing space/empty room around it */
+/* Profile Container styled with Deep Lake Navy glassmorphism & Maple border */
 .profile-container {
-    max-width: 700px;
-    background: rgba(0, 0, 0, 0.55);
+    max-width: 720px;
+    background: rgba(11, 37, 58, 0.72);
     padding: 3rem;
     border-radius: 24px;
-    border: 4px dashed #FFD014; /* Graphic look inspired by the WIP sign border */
+    border: 3px dashed #F26419;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    margin: 6rem auto 2rem auto; /* Substantial top margin provides structural isolation */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    margin: 5rem auto 2rem auto;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), inset 0 0 20px rgba(30, 115, 190, 0.25);
+    position: relative;
+    z-index: 20;
 }
 
 h4 {
     font-size: 1.4rem;
-    color: #FFD014;
+    color: #F6AE2D;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    -webkit-text-stroke: 0.5px #C82319;
+    letter-spacing: 1.2px;
+    -webkit-text-stroke: 0.5px #D92B04;
+    border-bottom: 2px solid rgba(242, 100, 25, 0.4);
+    padding-bottom: 0.35rem;
+}
+
+h4:first-child {
+    margin-top: 0;
 }
 
 ul {
@@ -87,45 +100,49 @@ ul {
 }
 
 li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
     font-size: 1.15rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    color: #F8FAFC;
+    text-shadow: 1px 1px 3px rgba(11, 37, 58, 0.95);
 }
 
 strong {
-    color: #E15A19;
-    -webkit-text-stroke: 0.5px #FFD014;
+    color: #F26419;
+    -webkit-text-stroke: 0.4px #F6AE2D;
 }
 
-/* Floating Audio / Music Controller Leaf Button */
+/* Leaf Music Button (Inactive / Paused State) */
 .music-btn {
     position: fixed;
     top: 25px;
     right: 25px;
-    width: 55px;
-    height: 55px;
-    background-color: rgba(255, 208, 20, 0.6); /* Semi-transparent yellow */
-    color: #000;
-    border: 2px solid rgba(200, 35, 25, 0.7);
-    border-radius: 0 25px; /* Leaf geometric profile */
-    font-size: 1.4rem;
+    width: 58px;
+    height: 58px;
+    background-color: rgba(246, 174, 45, 0.75);
+    border: 2.5px solid #D92B04;
+    border-radius: 0 28px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 14px rgba(11, 37, 58, 0.45);
     z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transform: rotate(-15deg);
-    transition: transform 0.2s, background-color 0.2s, opacity 0.2s;
+    transition: transform 0.25s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Leaf Music Button (Active / Playing State) */
+.music-btn.playing {
+    background-color: rgba(217, 43, 4, 0.95);
+    border-color: #F6AE2D;
+    box-shadow: 0 0 18px rgba(246, 174, 45, 0.85);
 }
 
 .music-btn:hover {
-    transform: scale(1.1) rotate(5deg);
-    background-color: rgba(225, 90, 25, 0.85); /* Swaps to orange color overlay */
-    color: #FFFDF6;
+    transform: scale(1.12) rotate(5deg);
+    background-color: rgba(242, 100, 25, 0.9);
 }
 
-/* Falling Leaves Animation Layer */
+/* =========================================
+   ENHANCED FALLING MAPLE LEAVES EFFECT
+   ========================================= */
 .leaves-container {
     position: fixed;
     top: 0;
@@ -133,42 +150,77 @@ strong {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 10;
+    z-index: 15;
+    overflow: hidden;
 }
 
 .leaf {
     position: absolute;
-    top: -20px;
-    width: 15px;
-    height: 15px;
-    background: #C82319;
-    border-radius: 0 15px;
-    opacity: 0.8;
-    animation: fall linear infinite;
+    top: -40px;
+    width: 24px;
+    height: 24px;
+    background: #D92B04;
+    /* Japanese Maple leaf silhouette */
+    clip-path: polygon(
+        50% 0%, 62% 28%, 92% 20%, 74% 48%, 
+        98% 68%, 66% 72%, 56% 100%, 44% 100%, 
+        34% 72%, 2% 68%, 26% 48%, 8% 20%, 38% 28%
+    );
+    opacity: 0.9;
+    filter: drop-shadow(0 3px 5px rgba(11, 37, 58, 0.4));
+    animation: mapleFall linear infinite;
 }
 
-/* Color & size overrides for leaf variety */
-.leaf:nth-child(2n) { background: #E15A19; width: 20px; height: 20px; }
-.leaf:nth-child(3n) { background: #FFD014; width: 12px; height: 12px; }
+/* Color & Size Variations matching the canopy in the photo */
+.leaf:nth-child(2n) {
+    background: #F26419;
+    width: 28px;
+    height: 28px;
+}
 
-/* Distributing leaf positions and staggered speeds */
-.leaf:nth-child(1) { left: 10%; animation-duration: 7s; animation-delay: 0s; }
-.leaf:nth-child(2) { left: 25%; animation-duration: 9s; animation-delay: 2s; }
-.leaf:nth-child(3) { left: 45%; animation-duration: 6s; animation-delay: 1s; }
-.leaf:nth-child(4) { left: 65%; animation-duration: 8s; animation-delay: 4s; }
-.leaf:nth-child(5) { left: 80%; animation-duration: 7s; animation-delay: 1.5s; }
-.leaf:nth-child(6) { left: 90%; animation-duration: 10s; animation-delay: 3s; }
+.leaf:nth-child(3n) {
+    background: #F6AE2D;
+    width: 20px;
+    height: 20px;
+}
 
-@keyframes fall {
+.leaf:nth-child(4n) {
+    background: #B81D00;
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+}
+
+/* Staggered horizontal positions, speeds, and delays for 12 leaves */
+.leaf:nth-child(1)  { left: 5%;  animation-duration: 9s;  animation-delay: 0s; }
+.leaf:nth-child(2)  { left: 14%; animation-duration: 12s; animation-delay: 2s; }
+.leaf:nth-child(3)  { left: 23%; animation-duration: 8s;  animation-delay: 4s; }
+.leaf:nth-child(4)  { left: 32%; animation-duration: 11s; animation-delay: 1s; }
+.leaf:nth-child(5)  { left: 41%; animation-duration: 10s; animation-delay: 5s; }
+.leaf:nth-child(6)  { left: 50%; animation-duration: 13s; animation-delay: 2.5s; }
+.leaf:nth-child(7)  { left: 59%; animation-duration: 9.5s; animation-delay: 6s; }
+.leaf:nth-child(8)  { left: 68%; animation-duration: 11.5s; animation-delay: 0.5s; }
+.leaf:nth-child(9)  { left: 77%; animation-duration: 8.5s; animation-delay: 3.5s; }
+.leaf:nth-child(10) { left: 85%; animation-duration: 12.5s; animation-delay: 1.5s; }
+.leaf:nth-child(11) { left: 92%; animation-duration: 10.5s; animation-delay: 4.5s; }
+.leaf:nth-child(12) { left: 97%; animation-duration: 9s;  animation-delay: 7s; }
+
+@keyframes mapleFall {
     0% {
-        top: -50px;
-        transform: translateX(0) rotate(0deg);
+        top: -40px;
+        transform: translateX(0px) rotate(0deg) rotateY(0deg);
+    }
+    25% {
+        transform: translateX(35px) rotate(90deg) rotateY(45deg);
     }
     50% {
-        transform: translateX(50px) rotate(180deg);
+        transform: translateX(-25px) rotate(180deg) rotateY(180deg);
+    }
+    75% {
+        transform: translateX(40px) rotate(270deg) rotateY(260deg);
     }
     100% {
-        top: 105vh;
-        transform: translateX(-30px) rotate(360deg);
+        top: 108vh;
+        transform: translateX(-15px) rotate(360deg) rotateY(360deg);
     }
 }
